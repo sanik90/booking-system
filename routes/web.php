@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('home'); })->name('home');
+Route::get('/about', function () { return view('about'); })->name('about');
+Route::get('/contact', function () { return view('contact'); })->name('contact');
+Route::get('/book/new', ['uses' => 'MainController@newBooking', 'as' => 'new-booking']);
+Route::post('/book/create', ['uses' => 'MainController@createBooking', 'as' => 'create-booking']);
+
+Route::get('/login', ['uses' => 'MainController@getLogin', 'as' => 'get-login']);
+Route::post('/login', ['uses' => 'MainController@postLogin', 'as' => 'post-login']);
