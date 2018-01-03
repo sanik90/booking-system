@@ -16,7 +16,7 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('organisation');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('purpose');
             $table->timestamp('date');
             $table->integer('approved_by')->unsigned()->nullable();
