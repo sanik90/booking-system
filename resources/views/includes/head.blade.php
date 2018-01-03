@@ -9,3 +9,5 @@
 <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="{{ asset('css/scrolling-nav.css') }}" rel="stylesheet">
+<!-- Fontawesome -->
+<link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
