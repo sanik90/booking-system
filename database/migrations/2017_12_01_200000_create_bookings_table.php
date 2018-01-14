@@ -18,7 +18,8 @@ class CreateBookingsTable extends Migration
             $table->string('organisation');
             $table->string('email');
             $table->string('purpose');
-            $table->timestamp('date');
+            $table->timestamp('date_start');
+            $table->timestamp('date_end')->nullable();
             $table->integer('approved_by')->unsigned()->nullable();
             $table->foreign('approved_by')->references('id')->on('users')->onDelete('cascade');
             $table->tinyInteger('status');

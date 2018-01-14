@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="control-label">Date</label>
                         <div>
-                            <input type="date" name="date" class="form-control" value="2018-01-01" required>
+                            <input type="date" name="date_start" class="form-control" value="2018-01-01" required>
                         </div>
                     </div>
                     <div class="form-group">

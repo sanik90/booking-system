@@ -30,7 +30,7 @@
                     <div class="form-group">
                         <label class="control-label">Date</label>
                         <div>
-                            <input type="text" class="form-control" value="{{ $booking->date }}" disabled>
+                            <input type="text" class="form-control" value="{{ $booking->date_start }}" disabled>
                         </div>
                     </div>
                     <div class="form-group">

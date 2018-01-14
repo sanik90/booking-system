@@ -26,7 +26,7 @@ class BookingController extends Controller
         $booking->organisation = $request->organisation;
         $booking->email = $request->email;
         $booking->purpose = $request->purpose;
-        $booking->date = $request->date;
+        $booking->date_start = $request->date_start;
         $booking->status = 0;
         $booking->save();
 

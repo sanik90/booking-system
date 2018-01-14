@@ -8,7 +8,7 @@ use Hashids;
 class Booking extends Model
 {
     protected $fillable = [
-        'organisation', 'email', 'purpose', 'date', 'status', 'approved_by',
+        'organisation', 'email', 'purpose', 'date_start', 'date_end', 'status', 'approved_by',
     ];
 
     protected $append = [
