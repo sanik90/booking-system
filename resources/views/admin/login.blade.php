@@ -1,8 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
+@include('includes.header-content')
+
 <section class="bg-light">
   <div class="container">
+
+    @include('includes.flash-message')
+
     <div class="row">
       <div class="col-lg-12">
         <div class="box box-primary">

@@ -16,9 +16,4 @@ class PageController extends Controller
     {
 
     }
-
-    public function allBookings(Request $request)
-    {
-
-    }
 }

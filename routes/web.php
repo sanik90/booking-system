@@ -14,8 +14,15 @@
 Route::get('/', function () { return view('home'); })->name('home');
 Route::get('/about', function () { return view('about'); })->name('about');
 Route::get('/contact', function () { return view('contact'); })->name('contact');
-Route::get('/book/new', ['uses' => 'MainController@newBooking', 'as' => 'new-booking']);
-Route::post('/book/create', ['uses' => 'MainController@createBooking', 'as' => 'create-booking']);
+Route::get('/book/new', function () { return view('bookings/new'); })->name('new-booking');
+Route::post('/book/new', ['uses' => 'BookingController@createBooking', 'as' => 'create-booking']);
+Route::get('/booking/{id}', ['uses' => 'BookingController@getBooking', 'as' => 'booking']);
 
-Route::get('/login', ['uses' => 'MainController@getLogin', 'as' => 'get-login']);
-Route::post('/login', ['uses' => 'MainController@postLogin', 'as' => 'post-login']);
+Route::get('/login', function () { return view('admin/login'); })->name('login');
+Route::post('/login', ['uses' => 'UserController@postLogin', 'as' => 'post-login']);
+Route::get('/logout', function () { Auth::logout(); Session::flush(); return redirect('/'); } )->name('logout');
+
+Route::group(['middleware' => 'auth'], function () {
+    // Route::get('/dashboard', ['uses' => 'UserController@getDashboard', 'as' => 'dashboard']);
+    Route::get('/bookings', ['uses' => 'BookingController@getBookings', 'as' => 'bookings']);
+});

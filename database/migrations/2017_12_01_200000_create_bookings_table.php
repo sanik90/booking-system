@@ -16,9 +16,10 @@ class CreateBookingsTable extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('organisation');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('purpose');
-            $table->timestamp('date');
+            $table->timestamp('date_start');
+            $table->timestamp('date_end')->nullable();
             $table->integer('approved_by')->unsigned()->nullable();
             $table->foreign('approved_by')->references('id')->on('users')->onDelete('cascade');
             $table->tinyInteger('status');

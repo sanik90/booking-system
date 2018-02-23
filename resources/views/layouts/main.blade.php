@@ -8,5 +8,6 @@
     @yield('content')
     @include('includes.footer')
     @include('includes.foot')
+    @yield('jquery')
   </body>
 </html>

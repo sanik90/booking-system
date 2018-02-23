@@ -16,24 +16,4 @@ class MainController extends Controller
     {
 
     }
-
-    public function getLogin()
-    {
-        return view('admin/login');
-    }
-
-    public function postLogin(Request $request)
-    {
-        return redirest('dashboard');
-    }
-
-    public function newBooking()
-    {
-        return view('bookings/new');
-    }
-
-    public function createBooking(Request $request)
-    {
-        return redirect('home');
-    }
 }
