@@ -16,6 +16,18 @@
             </div>
                 <div class="box-body">
                     <div class="form-group">
+                        <label class="control-label">Status</label>
+                        <div>
+                            @if ($booking->status == 0)
+                            <button type="button" class="btn btn-warning btn-block">{{ $booking->status_human }}</button>
+                            @elseif ($booking->status == 1)
+                            <button type="button" class="btn btn-primary btn-block">{{ $booking->status_human }}</button>
+                            @else
+                            <button type="button" class="btn btn-danger btn-block">{{ $booking->status_human }}</button>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label">Organisation</label>
                         <div>
                             <input type="text" class="form-control" value="{{ $booking->organisation }}" disabled>
@@ -42,9 +54,31 @@
                     <div class="form-group">
                         <label class="control-label">Attachment(s)</label>
                         @foreach ($booking->attachments as $attachment)
-                        <div class="mt-2"><a href="{{url('/')}}/{{ \Storage::disk('public')->url($attachment->name) }}" type="button" class="btn btn-primary btn-block">{{ $attachment->name }}</a></div>
+                        <div class="mt-2"><a href="{{ \Storage::disk('public_attachments')->url($attachment->name) }}" type="button" class="btn btn-primary btn-block" target="_blank">{{ $attachment->name }}</a></div>
                         @endforeach
                     </div>
+
+                    @if ($booking->status == 0)
+                    <form action="{{ route('approve-booking', $booking->id) }}" method="post">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-primary btn-block">Approve</button>
+                    </form>
+                    <br>
+                    <form action="{{ route('reject-booking', $booking->id) }}" method="post">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-danger btn-block">Reject</button>
+                    </form>
+                    @elseif ($booking->status == 1)
+                    <form action="{{ route('reject-booking', $booking->id) }}" method="post">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-danger btn-block">Reject</button>
+                    </form>
+                    @else
+                    <form action="{{ route('approve-booking', $booking->id) }}" method="post">
+                        {{ csrf_field() }}
+                        <button type="submit" class="btn btn-primary btn-block">Approve</button>
+                    </form>
+                    @endif
                 </div>
         </div>
       </div>

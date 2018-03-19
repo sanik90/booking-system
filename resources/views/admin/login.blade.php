@@ -20,13 +20,13 @@
                     <div class="form-group">
                         <label class="control-label">Email</label>
                         <div>
-                            <input type="email" name="email" class="form-control" required>
+                            <input type="email" name="email" class="form-control" value="jdoe@mail.my"  required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Password</label>
                         <div>
-                            <input type="password" name="password" class="form-control" required>
+                            <input type="password" name="password" class="form-control" value="secret" required>
                         </div>
                     </div>
                 </div>
