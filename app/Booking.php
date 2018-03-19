@@ -12,6 +12,7 @@ class Booking extends Model
     ];
 
     protected $append = [
+        'status_human',
         'attachments'
     ];
 
@@ -23,6 +24,17 @@ class Booking extends Model
     public function getIdAttribute($value)
     {
         return Hashids::encode($value);
+    }
+
+    public function getStatusHumanAttribute()
+    {
+        $status = 'Pending';
+        if ($this->status == 1) {
+            $status = 'Approved';
+        } elseif ($this->status == 2) {
+            $status = 'Rejected';
+        }
+        return $status;
     }
 
     public function getAttachmentsAttribute()
