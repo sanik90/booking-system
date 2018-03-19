@@ -17,6 +17,8 @@ Route::get('/contact', function () { return view('contact'); })->name('contact')
 Route::get('/book/new', function () { return view('bookings/new'); })->name('new-booking');
 Route::post('/book/new', ['uses' => 'BookingController@createBooking', 'as' => 'create-booking']);
 Route::get('/booking/{id}', ['uses' => 'BookingController@getBooking', 'as' => 'booking']);
+Route::post('/booking/{id}/approve', ['uses' => 'BookingController@approveBooking', 'as' => 'approve-booking']);
+Route::post('/booking/{id}/reject', ['uses' => 'BookingController@rejectBooking', 'as' => 'reject-booking']);
 
 Route::get('/login', function () { return view('admin/login'); })->name('login');
 Route::post('/login', ['uses' => 'UserController@postLogin', 'as' => 'post-login']);
